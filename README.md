@@ -195,3 +195,56 @@ Klein apparaat dat tussen computer en toetsenbord geplaatst kan worden. Onthoudt
 
 ### 1.18 Leg SQL Injection uit! (BELANGRIJK)
 TODO
+
+
+# Hoofdstuk 2: Cryptologie
+### 2.1 Wat is het doel van cytrografie?
+Geheime communicatie tussen twee personen zonder de derde er iets van begrijpt!
+
+### 2.2 Geef het blok schema van de verschillende soorten crypto algoritmes.
+![Blokschema crypto](http://i.imgur.com/jehu3a8.png)
+
+### 2.3 Wat is een "Substitution Cipher"? + geef een voorbeeld.
+Is een encryptiemethode om tekst te encrypteren! Bij deze encyrptie wordt betekend een leter gewoon een andere leter in het alfabet. Bijvoorbeeld => A komt overeen met Z!
+
+Het makkelijkste voorbeeld hiervan is gewoon het alfabet te roteren. A wordt N, B wordt O, C wordt P, ... Ceaser heeft dit gebruikt in het oude Romeinse rijk. Vandaar dat dit vaak **Ceaser Cipher** genoemd wordt. Een andere naam is **Rotation Cipher**
+
+### 2.4 Hoe kun je een "Substitution Cipher" kraken?
+Door patronen te zoeken in de ciphertext kun je mogelijk deze encrytiecode makkelijk kraken! Deze patronen zoeken, noemen we **crypto analyse**. Je zou de key kunnen zoeken maar dit doen we niet, we gaan gewoon proberen om het volledige alfabet op te stellen (rosseta stone). 
+
+Je kunt dit doen door te zoeken naar de meest voorkomende letters, lettercombinaties. In het Engels komen bijvoorbeeld de letters a en I het vaakst voor. De meest voorkomende 2 letter woord is of, to, ... en zo verder. D.m.v. wat puzzelwerk kun je dus gokken met welke letter bijvoorbeeld de A wordt voorgesteld. Als je dit doet voor het volledig alfabet, kun je dus de tekst decrypteren. Dit wordt moeilijker als we er transposition cipher bijgebruiken!
+
+Natuurlij is social engineering ook altijd een mogelijkheid (mensen blijven dom), maar dit is voor volgend examen!
+
+#### OEFENING OEFENEN VAN SLIDES!
+=> Ik ga ervan uit dat we niet van buiten moeten kennen welke letter het vaakst voorkomt in het Engels woordenboek...
+
+### 2.5 Wat is een "Transposition Cipher"? + geef een voorbeeld
+Dit is ook een encryptiemethode voor tekst. Je verplaatst de letters gewoon van plaats.
+
+Voorbeeld **Rail - fence cipher**
+![Transpotion cipher example](http://i.imgur.com/GVJXKpR.png)
+
+Vroeger werd er vaak een combinatie van een subtitution cipher en transposition ciher gebruikt, dit zorgde voor moeilijkere cryptoanalyse.
+
+### 2.6 Wat is een Brute Force Search?
+Is een manier van cryptoanalysis. Deze manier is iets minder subtiel, het probeerd iets te kraken door gewoon alle combinaties af te gaan.
+
+Wat er probeerd gekraakt te worden hangt af van de situatie. Soms wordt er geprobeerd een key te kraken. Maar meestal een wachtwoord (tegenwoordig woorden wachtwoorden gehasht, geen key). Computers kunnen vaak tegen enorme snelheden "wachtwoorden" invullen. Maar door "nieuwe" technieken (hash, salt, betere standaarden, ...) wordt het ook altijd moeilijker.
+
+### 2.7 Wat zegt Kerckhoff princiepe? + verklaar!
+Kerchoff zegt dat de sterkte van een encryptie niet mag afhangen van het feit dat bekend is met welke encytptie methode de data geïncrypteerd is! En dat de sleutel dus veel belangrijker is!
+
+Waarom is dit? Dit is omdat een goede encryptie een totale andere uitgang geeft voor een kleine verandering van ingang. Je moet er dus eigenlijk voor zorgen dat er geen verband te leggen is tussen de ingang en de uitgang zonder dat je de sleutel weet! Indien het geval is maakt het niet uit of je weet met welke encryptiemethode de data geïncrypteerd is!
+
+### 2.8 Wat is symetrische encryptie, welke twee types bestaan er?
+Encryptie waarbij de sleuten om data te encrypteren dezelfde is als te dencrypteren.
+
+Je hebt **stream ciphers** en **block ciphers**
+
+### 2.9 Wat is het nadeel aan symetrische encryptie?
+De sleutel voor encryptie en decryptie is dezelfde. Dat betekend dat je als je met meerdere personen informatie geencrypteerd wilt uitwisselen je voor elke persoon en andere key zult moeten gebruiken!
+
+Indien je dit niet doet zullen alle personen waar mee je informatie deelt, jouw communicatie kunnen deencrypteren. Terwijl dit misschien niet de bedoeling is. (Ik wil praten met Bob en ik wil praten met Alice maar ik wil niet als ik praat met Bob dat Alice dit ook kan lezen).
+
+Hierdoor heb je dus snel een moeilijkheid bij, namelijk je keys gaan onderhouden. Ook heb je bij symetische encryptie dat beide partijen verantwoordelijk zijn voor de key! Dit in geen enkel geval publiek mag worden!
