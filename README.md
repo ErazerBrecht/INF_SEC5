@@ -120,3 +120,12 @@ Netwerk van hackers die (veel) geld ermee proberen te verdienen! Hun acties best
 
 #####Cyberterroristen
 Zelfde als cybercriminelen maar niet gericht op geld maar op principes of geloof.
+
+### 1.12 Welke 5 stappen doen we in een netwerk aanval?
+* Zoeken naar informatie (sniffen)
+* Verdediging doorbreken
+* Aanpassen van beveiligings instellingen
+* Andere systemen in het netwerk aanpassen (eerst minst beveiligde systeem hacken en dan van daar verder gaan)
+* Andere systemen / netwerken plat leggen (firewall neerhalen bijvoorbeeld)
+
+
