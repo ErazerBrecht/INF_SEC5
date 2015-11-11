@@ -56,9 +56,9 @@ Je kunt niet alles weten aka ik ben te tam omdat te leren!
   * Minder gevaarlijk / minder "illegaal"
 
 * Actieve aanvallen
-* Detecteerbaar
-* Kan veel resultaat opleveren
-* Gevaarlijk => zo goed als altijd illegaal!
+  * Detecteerbaar
+  * Kan veel resultaat opleveren
+  * Gevaarlijk => zo goed als altijd illegaal!
 
 ### 1.9 Geef voorbeelden van een passieve aanval.
 **Meeluisteren => sniffing** </br>
