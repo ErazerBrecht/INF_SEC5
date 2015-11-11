@@ -128,4 +128,19 @@ Zelfde als cybercriminelen maar niet gericht op geld maar op principes of geloof
 * Andere systemen in het netwerk aanpassen (eerst minst beveiligde systeem hacken en dan van daar verder gaan)
 * Andere systemen / netwerken plat leggen (firewall neerhalen bijvoorbeeld)
 
+### 1.13 Hoe verdedigen tegen een netwerk aanval?
+####Lagen (Layers)
+Één defensie syteem kan relatief gemakkelijk zijn om te omzeilen. Werk daarom met lagen maakt de kans kleiner dat een aanvaler door alle lagen heen door geraakt!
+
+####Limiteren (Limiting)
+Geef enkele diegene die het nodig hebben toegang tot bepaalde data!
+
+####Verschillend (Diversity)
+Zorg ervoor dat de lagen verschillend beveiligd zijn! Het zou stom zijn mocht de aanvaller meerdere lagen kunnen omzeilen met dezelfde techniek!
+
+####Onduidelijkheid (Obscurity)
+Een bekend voorbeeld hiervan is dat je niet onthuld welke computers in je bedrijf staan, welk OS ze hebben, netwerktopologie. Indien de hacker dit op voorhand al weet, of makkelijk kan achterhalen. Kan hij gerichter aanvallen!
+
+####Simpel (Simplicity)
+Hoe je systemen simpel van binnen, maar complex aan de buiten zijde! Dit zorgt ervoor dat de gebruikers het makkelijker hebben maar dat je ook makkelijker kunt troubleshooten, ...
 
