@@ -128,7 +128,7 @@ Zelfde als cybercriminelen maar niet gericht op geld maar op principes of geloof
 * Andere systemen in het netwerk aanpassen (eerst minst beveiligde systeem hacken en dan van daar verder gaan)
 * Andere systemen / netwerken plat leggen (firewall neerhalen bijvoorbeeld)
 
-### 1.13 Hoe verdedigen tegen een netwerk aanval?
+### 1.13 Hoe verdedigen we ons tegen een netwerk aanval?
 ####Lagen (Layers)
 Één defensie syteem kan relatief gemakkelijk zijn om te omzeilen. Werk daarom met lagen maakt de kans kleiner dat een aanvaler door alle lagen heen door geraakt!
 
@@ -144,3 +144,41 @@ Een bekend voorbeeld hiervan is dat je niet onthuld welke computers in je bedrij
 ####Simpel (Simplicity)
 Hoe je systemen simpel van binnen, maar complex aan de buiten zijde! Dit zorgt ervoor dat de gebruikers het makkelijker hebben maar dat je ook makkelijker kunt troubleshooten, ...
 
+### 1.14 Wat is malware?
+Malware is een verzamelnaam voor softwaren die als doel heeft om de computer te infecteren. En hierna zijn voordeel uit kan halen! Malware is een software gebaseerde aanval!
+
+### 1.15 Geef enkele voorbeelden van malware, en geef een woordje uitleg
+#####Virus
+Wordt gebundeld bij een uitvoerbaar bestand (.doc, .exe, ...). Vanaf dit bestand uitgevoerd wordt zal de computer geïnfecteerd geraken! Vanaf nu zal het virus zich ook proberen te verspreiden. Uiteraard zal het virus ook "schade" aanrichten aan de computer waar het op uitgevoerd wordt (bv: bestanden verwijderen, meer virussen downloaden, lid worden van een botnet, ...)
+
+#####Worm
+Een worm is een verbeterende variant van een virus. Het heeft hetzelfde effect maar vereist niet dat de gebruiker het eerst uitvoerd. Het kan dus vanaf het aanwezig is op je computer, schade aanrichten, en zich zelf verspreiden!
+
+#####Trojan Horse
+Verschilt t.o.v. de vorigz dat het niet bijgevoegd wordt bij een bestand. Het is eerder een bestand zelf (vooral een installer). Het zal zich adverteren als een goed, normaal werkend programma! Maar in de achtergrond doet het iets anders. Zoals bijvoorbeeld virussen, worms downloaden of backdoors openen!
+
+####Rootkits
+De naam komt van root in de Linux wereld. Rootkits draaien "dieper" in het system dan normale malware software. Ze zijn instaat om andere programma's te manipuleren. Ook bestaan er rootkits die op kernel niveau (drivers) werken. Deze hebben evenveel rechten als het OS zelf en zijn moeilijk te verwijderen, meestal eindigd dit op format C:\. Om dit laatste te vermijden op Windows kunnen normale gebruikers tegenwoordig enkel ondertekende drivers installeren. 
+
+
+
+####Logic bomb
+Wachten op een bepaalde trigger zoals de datum, voordat ze schade gaan toerichten op een systeem.
+
+####Spyware
+Software die de privacy van de gebruiker schendt. Volgt wat je doet (online / offline), keylogger (onthoud wat je typt), adware (overal reclame, popups). </br>
+Deze software kan de computer onbruikbaar makn (traag, pop-ups, toolbars, ...).
+Makers verkopen deze informatie voor geld of gebruiken gegevens voor te profiteren (bank account).
+
+
+###1.16 Welke software maakt gebruik van malware?
+####Spam
+Ongewente email die malware kan bevatten!
+
+####Backdoors
+Zoals de naam zegt, zorgt ervoor dat er makkelijk in je computer (opnieuw) kan ingebroken worden. Wordt vaak geplaats door malware.
+
+####Botnet
+"Zombie" computers die onder de controle zijn de aanvaller (bot herder). Computers worden lid van een botnet door infectie via malware. Deze malware plaats een backdoor en zo kunnen de aanvallers de computer overnemen en lid maken van zijn botnet.
+
+Een botnet kan gebruikt worden voor spam mails, Ddos, verspreiden van malware, online pols manipuleren, ...
