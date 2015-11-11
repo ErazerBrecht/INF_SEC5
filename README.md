@@ -182,3 +182,16 @@ Zoals de naam zegt, zorgt ervoor dat er makkelijk in je computer (opnieuw) kan i
 "Zombie" computers die onder de controle zijn de aanvaller (bot herder). Computers worden lid van een botnet door infectie via malware. Deze malware plaats een backdoor en zo kunnen de aanvallers de computer overnemen en lid maken van zijn botnet.
 
 Een botnet kan gebruikt worden voor spam mails, Ddos, verspreiden van malware, online pols manipuleren, ...
+
+### 1.17 Met welke hardware kun je systemen aanvallen / hacken
+#####BIOS Aanvallen
+Combinatie software / hardware. Malware die het geheugen van het BIOS aanpast! De kans dat je computer omzeep is, is zeer groot. Het BIOS was vroeger het stuk software die zorgde dat een OS kon geladen worden. Tegenwoordig gebruiken we UEFI! Dit is veel moeilijker te hacken (nog geen gevallen geweest), en zorgt d.m.v. safeboot dat er geen andere software opgestart kan worden buiten een vertrouwd OS.
+
+#####USB Sticks
+Kunnen voor alles gebruikt worden. Ze kunnen dienen om malware te verspreiden (virussen, maar vooral keyloggers). Ze zijn tegenwoordig zeer klein, en kunnen onopvallend in een PC geplaatst worden! Ook worden ze vaak doorgeven waardoor het een makkelijke manier is om malware te verspreiden!
+
+#####Hardware keylogger
+Klein apparaat dat tussen computer en toetsenbord geplaatst kan worden. Onthoudt elke karakter die is ingetypt!
+
+### 1.18 Leg SQL Injection uit! (BELANGRIJK)
+TODO
