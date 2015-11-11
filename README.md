@@ -85,5 +85,38 @@ Bijvoorbeeld: Je speelt default gateway in het netwerk! Alle informatie komt naa
 #####DoS (Denial of Service)
 Persoon B (Eve) zorgt ervoor dat persoon X (Alice) niet meer bereikbaar is voor persoon Y (Bob). 
 
+### 1.11 Wie voert er allemaal aanvallen (hacks) uit?
+#####Hackers
+Mensen die inbreken op systemen! </br>
 
+*White hat hackers:* </br>
+Geloven erin dat ze niet illegaal zijn omdat ze niets stuk maken! Ze zullen hun expetises melden aan de instantie die ze gehackt hebben. Zij vragen ook meestal om toestemming.
 
+*Gray hat hackers:* </br>
+Zelfde als white hat hackers buiten het feit dat ze het na x aantal tijd de hack ook publiceren. Dit doen ze om meer druk uit te oefenen op het bedrijf. Ze durven geld te vragen om de hack niet te publiceren of te tijd te verlengen. Zij vragen ook geen toestemming aan de instantie.
+
+*Black hat hackers:* </br>
+Zij hacken een instantie zonder iets te laten weten aan de instantie. Zij verkopen hun vondston door zonder dat het bedrijf het dus weet. Het bedrijf kan hier grote schade van ondervinden. Deze hackers zijn 100% illegaal bezig!
+
+*Blue hat hackers:* </br>
+Dit zijn mensen die ingehuurd worden door bedrijven om security te testen (pen - testing). A.d.h.v een contract worden zij toegelaten om hun systemen te hacken (of allesinds te proberen).
+
+#####Script kddies
+Ongetalenteerde gebruikers van hacking software. Ze hebben geen technische kennis, en gebruiken tools die op het internet beschikbaar zijn om systemen aan te vallen (kan ook gekocht worden, zie vraag 1.2)
+
+#####Spionnen / Privé detectivies
+Privé detectivies worden ingehuurd om mensen te hacken en informatie te stelen! </br>
+Spionen, de overheidsdiensten hebben online ook spionen die "geregulariseerd" hacken (NSA, AIVD, ...)
+
+#####Werknemers
+Kunnen vaak een grote bedreiging zijn! 
+* Ze zijn het niet eens, en kunnen zo gegevens lekken (ontslagen, ...)
+* Bedrijfsspionage
+* Blackmailing => Werknemers worden afgeperst voor informatie van bedrijf
+* Social Engineering
+
+#####Cybercriminelen
+Netwerk van hackers die (veel) geld ermee proberen te verdienen! Hun acties bestaan uit veel illegale zaken maar vooral uit bankzaken te kraken!
+
+#####Cyberterroristen
+Zelfde als cybercriminelen maar niet gericht op geld maar op principes of geloof.
