@@ -279,7 +279,15 @@ AES staat voor Advanced Encryption Standard. Het is de nieuwe standaard voor sym
 TODO, gaat ik waarschijnlijk niet meer geraken...
 
 ### 2.15 Hoe werkt 3DES anders dan DES?
-TODO
+3DES is eigenlijk DES 3 keer achter elkaar. DES is een veilig algoritme (indien geen ECB gebruikt werd) enkel was de key was nogal kort (56 bit). Dit was makkelijk te brutoforcen!
+
+Door 3 keer DES achter elkaar te doen krijgen we een key van 168 bit. Voor tragere apparaten kan er ook een 112 bit key gebruikt worden en dan is intern K1 == K3.
+
+De eerste stap encrypteren we de block met K1, daarna decrypten we hem met K2. Als laatste encrypteren we de block met K3
+
+![3DES](http://i.imgur.com/7FGh7mf.png)
+
+Decrypteren met 3DES is gewoon andersom! We kunnen met 3DES ook DES ondersteunen dan zijn K1 == K2 == K3!
 
 ### 2.16 Wat zijn "Block Ciphers modes"?
 Een block cipher symetrische encryptie zegt enkel hoe de blocken van x aantal bits geencrypteerd worden. Je moet echter nog deze blokken kunnen genereren. Dit wordt a.d.h.v. **Block Cipher mode** gedaan. 
