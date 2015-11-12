@@ -248,3 +248,20 @@ De sleutel voor encryptie en decryptie is dezelfde. Dat betekend dat je als je m
 Indien je dit niet doet zullen alle personen waar mee je informatie deelt, jouw communicatie kunnen deencrypteren. Terwijl dit misschien niet de bedoeling is. (Ik wil praten met Bob en ik wil praten met Alice maar ik wil niet als ik praat met Bob dat Alice dit ook kan lezen).
 
 Hierdoor heb je dus snel een moeilijkheid bij, namelijk je keys gaan onderhouden. Ook heb je bij symetische encryptie dat beide partijen verantwoordelijk zijn voor de key! Dit in geen enkel geval publiek mag worden!
+
+### 2.9 Leg PRNG uit
+PRNG staat voor **Pseudorandom Number Generators**
+
+Je zijn zo goed als random maar niet volledig, ze zijn afhankelijk van een seed. Deze seed wordt gebruikt als intilisatie van de PRNG's. Bij een zelfde seed zullen twee PRNG dezelfde random getallen genereren. Bijvoorbeeld C#.
+
+
+### 2.10 Leg de basiswerking van stream cipher uit plus geef een encryptie standaard die dit gebruikt!
+##### Stap 1: Sleutelgeneratie
+Eerst moeten we onze sleutel ontwerpen. Dit doen we door een Pseudorandom Number Generator (PRNG) te gebruiken. We gebruiken als seed een key die we hebben afgesproken op ontvanger en zender (deze moet dezelfde zijn). 
+
+##### Stap 2: Encrypteren + Decrypteren
+Nu gaat je bit voor bit de data XOR'en met de gegenereerde sleutel. Je data in nu geïncrypteerd. 
+
+Indien je wilt decrypteren, genereer je terug een sleutel d.m.v. een PRNG die als seed de de gekozen key heeft. Hierna XOR je deze met de inkomende geecrypteerde data. Indien de key juist was zal de gegenereerde steutel dezelfde zijn als bij de zender. XOR is omkeerbaar door terug te XOR'en met hetzelfde, dus indien de key dus juist was komt hier terug de originele bit uit!
+
+RC4 is een bekend voorbeeld, was long één van de encryptiemethoden. Werd gebruikt in https en wifi. Maar nu is toch gebleken dat deze niet zo veilig is dan gedacht!
