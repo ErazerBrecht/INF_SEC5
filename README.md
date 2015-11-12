@@ -432,3 +432,36 @@ Een publiek toegankelijke map waaron alle certificaten en CRL's van een CA insta
 Voornamelijk bij het gebruik van https, hierdoor kun je dus zeker zijn dat een bepaalde site wel degelijk de site is dieje je bedoeld / nodig hebt. Dit is om phising tegen te gaan (kopie van bestaande site)!
 
 Echter kunnen ze online gebruikt worden voor alle zaken om te kunnen bewijzen dat je wel degelijk persoon X bent. Elke persoon met een EID heeft bijvoorbeeld een certificaat. Zo kun je via e-mail je jezelf ook bewijzen dat je wel degelijk die persoon bent! Maar ook voor andere zaken zoals belastingsbrief en etc. is het belangrijk dat de server weet dat je 100% de juiste persoon bent om fraude tegen te gaan!
+
+
+## Hoofdstuk 3; WLAN Security
+
+###3.1 Wat is het grootste veiligheidsprobleem bij WiFi?
+WLAN heeft geen fysieke grenzen, bij LAN heb je fysieke toegang nodig. Bij WLAN niet, je WiFi van thuis kunnen je buren ook ontvangen!
+
+Waar je bij LAN dus minstens toegang nodig had tot een ethernet poort is dit bij WLAN niet meer! Het wordt een stuk minder moeilijk!
+
+###3.2 Wat zijn de grootste problemen bij WiFi zonder beveiliging?
+*  Sniffen (Eavesdropping)
+*  Denial of service attacks 
+  * Access point makkelijk "plat" te leggen => RTS / CTS aanval
+  * Fysische aanval op 2,4 GHz => Kan zelf met een microgolf oven!
+*  **Rogue AP**
+  * Access point die niet behoord tot de netwerk infrastructuur van het netwerk (bedrijf, organisatie, persoon, ...)
+  * Kan misbruikt worden voor MiTM aanval => Zelfde SSID mensen verbinden zich via jouw AP naar het internet!
+  
+###3.3 4 stappen om verbinding te maken via WiFi
+1.  Scannen => Zijn er AP's in de buurt => Geven SSID terug
+2.  Joining => Connectie vragen met AP => fysische instelling juist zetten (correct kanaal, ...)
+3.  Authentication => Mag ik verbinding maken?
+    * Geen beveiliging => stap overslaan
+    * Beveiling => AP stuurt challange naar client, client encrypeert deze met key => stuurt dit terug => AP encrypteerd ook de challange => Indien beide geëncrypteerde challanges dezelfde zijn => Clinet is geathentiseerd!
+    * MAC gebaseerde beveiling => Vergelijkbaar met port security => Nuteloos door mac spoofing! => En wifi wordt niet afgesloten zoals bij portsecurity wel het geval kan zijn voor een ethernet poort!
+4. Association => Analoog met: steek de kabel in de poort
+    * Afpsraken sturen (IP, Default gateway) => DHCP
+5. Je bent verbonden!
+
+###3.4 Hebben we CIA bij WiFi
+Zonder beveilings methode hebben we niets van CIA. Buiten het feit dat de beveiling dus zorgt voor wie mag er met de access point verbinden zal het dan ook aan encryptie en integriteits checks van de data doen!
+
+1 ste standaard => WEP (Wireless Equivalent Privacy)
