@@ -3,9 +3,7 @@ Deze README zal proberen te voorspellen wat Dhr.Dams zal vragen op het examen (M
 
 **Dit zal niet zoals mijn vorige REPO (Embedded 5), een antwoord geven op alle vragen! Ik kan daarom niet garanderen dat dit genoeg informatie / leerstof is om erdoor te zijn!**
 
-
 #Hoofdstuk 1
-
 
 ###1.1 Wat is het voordeel van een private cloud
 Een private cloud is een cloud die je zelf moet beheren! Je data is dan wel beschikbaar via het internet (cloud) maar je hebt zelf controle op de beveiling van je data!
@@ -85,7 +83,7 @@ Bijvoorbeeld: Je speelt default gateway in het netwerk! Alle informatie komt naa
 #####DoS (Denial of Service)
 Persoon B (Eve) zorgt ervoor dat persoon X (Alice) niet meer bereikbaar is voor persoon Y (Bob). 
 
-### 1.11 Wie voert er allemaal aanvallen (hacks) uit?
+### 1.11 Wie voert er allemaal aanvallen (hacks) uit? (Minder belangrijk)
 #####Hackers
 Mensen die inbreken op systemen! </br>
 
@@ -121,7 +119,7 @@ Netwerk van hackers die (veel) geld ermee proberen te verdienen! Hun acties best
 #####Cyberterroristen
 Zelfde als cybercriminelen maar niet gericht op geld maar op principes of geloof.
 
-### 1.12 Welke 5 stappen doen we in een netwerk aanval?
+### 1.12 Welke 5 stappen doen we in een netwerk aanval? (Minder belangrijk)
 * Zoeken naar informatie (sniffen)
 * Verdediging doorbreken
 * Aanpassen van beveiligings instellingen
@@ -160,8 +158,6 @@ Verschilt t.o.v. de vorigz dat het niet bijgevoegd wordt bij een bestand. Het is
 ####Rootkits
 De naam komt van root in de Linux wereld. Rootkits draaien "dieper" in het system dan normale malware software. Ze zijn instaat om andere programma's te manipuleren. Ook bestaan er rootkits die op kernel niveau (drivers) werken. Deze hebben evenveel rechten als het OS zelf en zijn moeilijk te verwijderen, meestal eindigd dit op format C:\. Om dit laatste te vermijden op Windows kunnen normale gebruikers tegenwoordig enkel ondertekende drivers installeren. 
 
-
-
 ####Logic bomb
 Wachten op een bepaalde trigger zoals de datum, voordat ze schade gaan toerichten op een systeem.
 
@@ -183,7 +179,7 @@ Zoals de naam zegt, zorgt ervoor dat er makkelijk in je computer (opnieuw) kan i
 
 Een botnet kan gebruikt worden voor spam mails, Ddos, verspreiden van malware, online pols manipuleren, ...
 
-### 1.17 Met welke hardware kun je systemen aanvallen / hacken
+### 1.17 Met welke hardware kun je systemen aanvallen / hacken? (Minder belangrijk)
 #####BIOS Aanvallen
 Combinatie software / hardware. Malware die het geheugen van het BIOS aanpast! De kans dat je computer omzeep is, is zeer groot. Het BIOS was vroeger het stuk software die zorgde dat een OS kon geladen worden. Tegenwoordig gebruiken we UEFI! Dit is veel moeilijker te hacken (nog geen gevallen geweest), en zorgt d.m.v. safeboot dat er geen andere software opgestart kan worden buiten een vertrouwd OS.
 
