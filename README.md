@@ -241,7 +241,7 @@ Je hebt **stream ciphers** en **block ciphers**
 ### 2.9 Wat is het nadeel aan symetrische encryptie?
 De sleutel voor encryptie en decryptie is dezelfde. Dat betekend dat je als je met meerdere personen informatie geencrypteerd wilt uitwisselen je voor elke persoon en andere key zult moeten gebruiken!
 
-Indien je dit niet doet zullen alle personen waar mee je informatie deelt, jouw communicatie kunnen deencrypteren. Terwijl dit misschien niet de bedoeling is. (Ik wil praten met Bob en ik wil praten met Alice maar ik wil niet als ik praat met Bob dat Alice dit ook kan lezen).
+Indien je dit niet doet zullen alle personen waar mee je informatie deelt, jouw communicatie kunnen decrypteren. Terwijl dit misschien niet de bedoeling is. (Ik wil praten met Bob en ik wil praten met Alice maar ik wil niet als ik praat met Bob dat Alice dit ook kan lezen).
 
 Hierdoor heb je dus snel een moeilijkheid bij, namelijk je keys gaan onderhouden. Ook heb je bij symetische encryptie dat beide partijen verantwoordelijk zijn voor de key! Dit in geen enkel geval publiek mag worden!
 
