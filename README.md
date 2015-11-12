@@ -15,7 +15,7 @@ Bijvoorbeeld, een exploit voor Vista zal nu niet meer waardevol zijn (bijna niem
 Dat hacks verkocht worden zorgt ervoor dat veel meer mensen (niet technische), ook kunnen "hacken". En hacken dus op grote schaal gebeurd!!!
 
 ###1.3 Waarom is het moeilijker geworden om je te verdedigen tegen aanvalen?
-* Aanvallen worden makkelijker te gebruiken of worde verkocht (zie vorige vraag)
+* Aanvallen worden makkelijker te gebruiken of worden verkocht (zie vorige vraag)
 * Aanvallen worden steeds beter
 * Aanvallen worden sneller (botnets, betere hardware, ...)
 * Patches zijn trager dan kwetsbaarheden (patch vereist veel testen, ...)
@@ -299,3 +299,50 @@ CBC staat voor Cipher Block Chaining! Data wordt gebroken in blokken. De eerste 
 Dit heeft dus als gevolg dat dezelfde plaindata niet dezelfde cypherdata geeft bij dezelfde key. Het is nu "onmogelijk" om patronen te gaan zoeken.
 
 ![Solution CBC](http://i.imgur.com/3veLpJH.png)
+
+### 2.19 Wat is Message Authentication?
+Is eigenlijk een hash functie met een key! Een hash functie (zie later) werd oorspronkelijk gebruikt om *Integrity* in te bouwen. Message Authentication voegt een extra sleutel toe om Authentication af te dwingen.
+
+Werking: Bob stuurt een tekst door naar Alive maar aan zijn plaintext wordt een MAC (Message Authentication Code) gehangen. Deze MAC is gegeneerd geweest met een geheime sleutel. Alive ontvangt de boodschap, en zal het MAC algoritme toepassen mijn zijn sleutel op de ontvangen plain text! Als de tekst onderweg is aangepast, dan zal de gegeneerde MAC niet dezelfde zijn als de ontvangen MAC. Dit zorgt dus voor Integrity! Indien de sleutel niet dezelfde was zal de gegeneerde MAC ook niet dezelfde zijn als de ontvangen MAC. Dit zorgt dus voor Authentication!
+
+Let op, MAC zorgt niet voor *confidentiality*! De onderligende tekst kan geïncrypteerd zijn maar dit is niet de taak van MAC! Indien je dit dus niet doet kunnen mensen (EVE) nog steeds lezen wat er verzonden wordt!!!
+
+### 2.20 Wat is een hash?
+Een hash is een functie waarbij je de ingang niet meer terug kan reconstueren uit de uitgang. Een hash zorgt er ook voor de uitgang "onafhankelijk" is van de ingang. Als je 1 letter veranderd in de ingang moet de uitgang volledig anders zijn.
+
+### 2.21 Geef een paar bekende hash algrotimes.
+MD5 => 128 bits
+SHA 1 => 160 bits
+SHA 256 => 256 bits
+
+SHA familie is trager als MD5. Dit is een voordeel in cryptologie. Hoe langer het duurt om een hash te nemen, hoelanger een brute force aanval tijd ins belag zal nemen! Pas op SHA is nog steeds te "snel", gebruik daarom liever bijvoorbeeld bcrtypt.
+
+### 2.22 Waarvoor kan een hash gebruikt worden?
+Een hash werd oorspronkelijk gebruikt om de *integrity* te checken. Indien de hash dezelfde was, was de data niet onderweg aangepast! Indien niet, was de data dus wel onderweg aangepast.
+
+Nu worden hashes ook gebruikt om wachtwoorden op te slagen. Hashen kun je in tegen stelling niet terug decrypteren. Hoe werkt dit dan? Je vult je wachtwoord in, we nemen hier de hash van en slaan dit op in onze database. Het wachtwoord wordt nooit opgeslagen! Indien de gebruiker wilt inloggen, wordt zijn ingevuld password terug gehasht met dezelfde werkwijze. Indien die hash dezelfde is als de opgeslagen hash is het wachtwoord correct!
+
+### 2.23 Wat is "doodelijk" in een hashing functie.
+Collisions zijn een teken van een niet veilige / betrouwbare hash functie. Collisions willen zeggen dat verschillende ingangen resulteren op dezelfde uitgang! Indien dit het geval is, kunnen hackers hier misbruik van maken!
+
+### 2.24 Wat bedoelen we met een hash ketting (chain)?
+In plaats van hash 1 keer te nemen van het oorspronkelijke wachtwoord nemen we dit x aantal keer. Dit zorgt dat / rainbowtables moeilijker worden (niet onmogelijk!!!). Indien je het password nuwilt checken moet je evenveel keer de hash nemen als bij het registeren van de gebruiker.
+
+Aangezien een hash nemen met MD5 of de SHA familie relatief snel is kunnen we heel wat loops maken voor de gebruiker het zal merken in snelheid!
+
+### 2.25 Wat is een rainbow table aanval? En hoe lossen we het op?
+Een zelfde ingang zorgt bij een hash functie voor eenzelfde uitgang. Als we "hello world" hashen zal het resultaat hiervan altijd hetzelfde zijn!!! 
+
+Dit betekend dus dat als we op voorhand vaak gebruikte wachtwoorden hashen en dan vergelijken met de gehashte wachtwoorden in de databank dat we nog steeds kunnen weten welk wachtwoord er is ingevuld.
+
+Natuurlijk is het niet zo simpel, en gebruiken we een "ketting" van hashes (zie vraag hierboven). Nu kunnen wij ook hetzelfde doen een onze hashes van de meestvoorkomende wachtwoorden in onze rainbow table beginnen te hashen en deze blijven te hashen tot we een hash tegen komen die gebruikt wordt in de DB. Onze rainbow table attack is geslaagd!
+
+We kunnen dit oplossen met een salt (zie volgende vraag)!
+
+### 2.26 Wat is een salt?
+Een salt is een vaste of random waarde die je toevoegd aan je wachtwoord voor je deze hasht! Je slaagt in je databank dan de gehashte waarde op. En de gebruikte salt. Het spreekt voor zich dat een random salt veel beter is! 
+
+Waarom slaag je de salt op denk je misschien, anders is het onmogelijk te kijken of de gebruiker het juiste wachtwoord invult. Indien de gebruiker zijn wachtwoord nu invult zal de salt er eerst aan toegevoegd worden voor de hash genomen wordt. Indien nu de hash dezelfde is als de opgslagen hash is het wachtwoord correct.
+
+Dit zorgt er voor dat er geen rainbowtables aanvallen meer kunnen gebeuren. Er bestaat namelijk geen rainbow table van elke salt. Pas op dit lost nog altijd niet het probleem op van dictionary aanvallen. De hacker weet op voorhaand welke salt er gebruikt is kan hij dus ipv de hash van 123456 te vergelijken met de hash in de databank, de hash van 123456salt vergelijken met de de hashes in de databank. Maar nu moet de aanvaller elke hash zelf genereren (in rainbow table stonden deze al), en dit kost tijd veel tijd. Maar daarom is het dus nog steeds belangrijk om een moeilijk passwoord te gebruiken en geen 123456 :)
+
