@@ -14,21 +14,28 @@ Bijvoorbeeld, een exploit voor Vista zal nu niet meer waardevol zijn (bijna niem
 
 Dat hacks verkocht worden zorgt ervoor dat veel meer mensen (niet technische), ook kunnen "hacken". En hacken dus op grote schaal gebeurd!!!
 
-###1.3 Waarom is het moeilijker geworden om je te verdedigen tegen aanvalen?
+###1.3 Waarom zijn persoongegevens (indentiteit) zo belangrijk (niet zo belangrijk)?
+Reclame bureau vinden deze zeer belangrijk bijvoorbeeld, om gericht reclame te kunnen zenden naar jouw. Ook de concurentie wilt zaken over jouw weten om misschien te misbruiken! Overheid is er ook in geïntresseerd in welke porno je kijkt (NSA, ... => spionnen)
+
+Maar criminelen vinden ze ook interssant. 2 categorieën:
+*  **True name theft:** nuttig om rekeningen te openen, officiele documenten te ondertekenen allemaal in naam van jou (je leven wordt overgenomen)
+*  **Account takeover:** illegale toegang op accounts verkrijgen (hacken). Zo kan de crimineel hier voordeel uitslaan, backaccount: geld overzetten naar een andere rekeinging. Of deze accounts verkopen!
+
+###1.4 Waarom is het moeilijker geworden om je te verdedigen tegen aanvalen?
 * Aanvallen worden makkelijker te gebruiken of worden verkocht (zie vorige vraag)
 * Aanvallen worden steeds beter
 * Aanvallen worden sneller (botnets, betere hardware, ...)
 * Patches zijn trager dan kwetsbaarheden (patch vereist veel testen, ...)
 * Gebruikers zijn dom (makkelijk wachtwoord, geen patches, ...)
 
-###1.4 Wat is Windows of vulnerability?
+###1.5 Wat is Windows of vulnerability?
 De tijd tussen het ontdekken van een exploit en de patch die zorgt dat de exploit onschadelijk gemaakt! Bijvoorbeeld *Patch Tuesday*, maandelijkse release van (beveiliginspatches) bij Windows Update. Veel "hackers" releasen hun exploits op de woensdag erna (Exploit Wednesday). Zo hopen hierdoor een lange Window of vulnereability. Omdat de volgende "Patch Tuesday" pas volgende maand is!
 
-###1.5 Wat is Information Security?
+###1.6 Wat is Information Security?
 De taak om digitale informatie te beveiligen, er dus voor zorgen dat er berschermende maatregelen zijn geïmplementeerd.
 Deze gaan vaak via het CIA model (zie volgende vraag)! Bijvoorbeeld zorgen voor encryptie op je data, ...
 
-###1.6 Wat houdt het CIA model in?
+###1.7 Wat houdt het CIA model in?
 ####C = Confidentiality (Confidentieel)
 Data mag enkel bekeken worden voor wie er toestemming voor heeft! Dit zorgt er dus voor dat er privacy gewaarborgt is!
 
@@ -44,10 +51,10 @@ Digitale data heeft tegenwoordig een grote impact op ons leven! Bijvoorbeeld ind
 
 Je data moet ook nog bechikbaar kunnen zijn tijdens een zware load! Je moet dus bijvoorbeeld zorgen dat DDoS aanvallen geen invloed hebben! => Load balancers, firewalls,... 
 
-###1.7 Wat is het Information Security Model?
+###1.8 Wat is het Information Security Model?
 Je kunt niet alles weten aka ik ben te tam omdat te leren!
 
-###1.8 Welke twee types van aanvallen hebben we?
+###1.9 Welke twee types van aanvallen hebben we?
 * Passieve aanvallen
   * Ondedecteerbaar 
   * Minder resultaat
@@ -58,14 +65,14 @@ Je kunt niet alles weten aka ik ben te tam omdat te leren!
   * Kan veel resultaat opleveren
   * Gevaarlijk => zo goed als altijd illegaal!
 
-### 1.9 Geef voorbeelden van een passieve aanval.
+### 1.10 Geef voorbeelden van een passieve aanval.
 **Meeluisteren => sniffing** </br>
 D.m.v. bijvoorbeeld WireShark kijken wat er verzonden wordt, en naar wie.
 
 **Verkeers analyse**
 Een raport maken van wat de persoon bezoekt, hoe frequent, ... En hier dan patronen inzoeken. 
 
-### 1.10 Geef voorbeelden van een actieve aanval.
+### 1.11 Geef voorbeelden van een actieve aanval.
 #####Masquerade
 U eigen voordoen als iemand anders! Je zend bijvoorbeeld data naar persoon X en je doet alsof je persoon Y bent. Indien er geen controle gebeurd zal persoon X nooit vragen stellen bij de data! Persoon X zal de data als correct beschouwen!
 
@@ -83,7 +90,7 @@ Bijvoorbeeld: Je speelt default gateway in het netwerk! Alle informatie komt naa
 #####DoS (Denial of Service)
 Persoon B (Eve) zorgt ervoor dat persoon X (Alice) niet meer bereikbaar is voor persoon Y (Bob). 
 
-### 1.11 Wie voert er allemaal aanvallen (hacks) uit? (Minder belangrijk)
+### 1.12 Wie voert er allemaal aanvallen (hacks) uit? (Minder belangrijk)
 #####Hackers
 Mensen die inbreken op systemen! </br>
 
@@ -119,14 +126,14 @@ Netwerk van hackers die (veel) geld ermee proberen te verdienen! Hun acties best
 #####Cyberterroristen
 Zelfde als cybercriminelen maar niet gericht op geld maar op principes of geloof.
 
-### 1.12 Welke 5 stappen doen we in een netwerk aanval? (Minder belangrijk)
+### 1.13 Welke 5 stappen doen we in een netwerk aanval? (Minder belangrijk)
 * Zoeken naar informatie (sniffen)
 * Verdediging doorbreken
 * Aanpassen van beveiligings instellingen
 * Andere systemen in het netwerk aanpassen (eerst minst beveiligde systeem hacken en dan van daar verder gaan)
 * Andere systemen / netwerken plat leggen (firewall neerhalen bijvoorbeeld)
 
-### 1.13 Hoe verdedigen we ons tegen een netwerk aanval?
+### 1.14 Hoe verdedigen we ons tegen een netwerk aanval?
 ####Lagen (Layers)
 Één defensie syteem kan relatief gemakkelijk zijn om te omzeilen. Werk daarom met lagen maakt de kans kleiner dat een aanvaler door alle lagen heen door geraakt!
 
@@ -142,10 +149,10 @@ Een bekend voorbeeld hiervan is dat je niet onthuld welke computers in je bedrij
 ####Simpel (Simplicity)
 Hoe je systemen simpel van binnen, maar complex aan de buiten zijde! Dit zorgt ervoor dat de gebruikers het makkelijker hebben maar dat je ook makkelijker kunt troubleshooten, ...
 
-### 1.14 Wat is malware?
+### 1.15 Wat is malware?
 Malware is een verzamelnaam voor softwaren die als doel heeft om de computer te infecteren. En hierna zijn voordeel uit kan halen! Malware is een software gebaseerde aanval!
 
-### 1.15 Geef enkele voorbeelden van malware, en geef een woordje uitleg
+### 1.16 Geef enkele voorbeelden van malware, en geef een woordje uitleg
 #####Virus
 Wordt gebundeld bij een uitvoerbaar bestand (.doc, .exe, ...). Vanaf dit bestand uitgevoerd wordt zal de computer geïnfecteerd geraken! Vanaf nu zal het virus zich ook proberen te verspreiden. Uiteraard zal het virus ook "schade" aanrichten aan de computer waar het op uitgevoerd wordt (bv: bestanden verwijderen, meer virussen downloaden, lid worden van een botnet, ...)
 
@@ -167,7 +174,7 @@ Deze software kan de computer onbruikbaar makn (traag, pop-ups, toolbars, ...).
 Makers verkopen deze informatie voor geld of gebruiken gegevens voor te profiteren (bank account).
 
 
-###1.16 Welke software maakt gebruik van malware?
+###1.17 Welke software maakt gebruik van malware?
 ####Spam
 Ongewente email die malware kan bevatten!
 
@@ -179,7 +186,7 @@ Zoals de naam zegt, zorgt ervoor dat er makkelijk in je computer (opnieuw) kan i
 
 Een botnet kan gebruikt worden voor spam mails, Ddos, verspreiden van malware, online pols manipuleren, ...
 
-### 1.17 Met welke hardware kun je systemen aanvallen / hacken? (Minder belangrijk)
+### 1.18 Met welke hardware kun je systemen aanvallen / hacken? (Minder belangrijk)
 #####BIOS Aanvallen
 Combinatie software / hardware. Malware die het geheugen van het BIOS aanpast! De kans dat je computer omzeep is, is zeer groot. Het BIOS was vroeger het stuk software die zorgde dat een OS kon geladen worden. Tegenwoordig gebruiken we UEFI! Dit is veel moeilijker te hacken (nog geen gevallen geweest), en zorgt d.m.v. safeboot dat er geen andere software opgestart kan worden buiten een vertrouwd OS.
 
@@ -189,7 +196,7 @@ Kunnen voor alles gebruikt worden. Ze kunnen dienen om malware te verspreiden (v
 #####Hardware keylogger
 Klein apparaat dat tussen computer en toetsenbord geplaatst kan worden. Onthoudt elke karakter die is ingetypt!
 
-### 1.18 Leg SQL Injection uit! (BELANGRIJK)
+### 1.19 Leg SQL Injection uit! (BELANGRIJK)
 TODO
 
 
