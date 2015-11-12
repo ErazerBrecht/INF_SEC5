@@ -346,3 +346,74 @@ Waarom slaag je de salt op denk je misschien, anders is het onmogelijk te kijken
 
 Dit zorgt er voor dat er geen rainbowtables aanvallen meer kunnen gebeuren. Er bestaat namelijk geen rainbow table van elke salt. Pas op dit lost nog altijd niet het probleem op van dictionary aanvallen. De hacker weet op voorhaand welke salt er gebruikt is kan hij dus ipv de hash van 123456 te vergelijken met de hash in de databank, de hash van 123456salt vergelijken met de de hashes in de databank. Maar nu moet de aanvaller elke hash zelf genereren (in rainbow table stonden deze al), en dit kost tijd veel tijd. Maar daarom is het dus nog steeds belangrijk om een moeilijk passwoord te gebruiken en geen 123456 :)
 
+### 2.27 Wat is public key encryption?
+Dit is **encryptie** waarbij de key voor te encrypteren niet dezelfde is als diegene om te decrypteren!
+
+De sleutel voor encrypteren wordt de publieke sleutel genoemd, iedereen kan deze bemachtigen. </br>
+De sleutel voor decrypteren wordt de private sleutel genoemd, deze mag niet "lekken" op het internent en moet strikt geheim blijven!
+
+Belangrijkste algoritme die gebruikt wordt hiervoor: **RSA**
+
+### 2.28 Wat is de werking van public key encryption?
+Je kunt de werking vergelijken met volgende analogie:
+
+Bob en Alice willen communiceren zonder dat Eve kan meeluisteren. Bob zend een lege schatkist door met een openhangslot (public key). Alice steekt haar data in de schatkist, en doe het hangslot dicht. Bob ontvangt de schatkist en d.m.v. zijn sleutel (private key), kan hij de data bekijken!
+
+Je kunt een public key ook anders om gebruiken om authentication te verzekeren (zie vraag 2.30 over Digital signatures)
+
+### 2.29 Wat is het voordeel van public key encryption?
+Je moet niet met sleutels zitten "prutsen", je maakt je publieke sleutel openbaar. Iedereen kan deze gebruiken maar enkel jij kunt de data decrypteren. Je moet dus geen schrik hebben dat mensen die je publieke sleutel hebben ook data kunnen decrypteren!
+
+Je moet nooit een sleutel doorzenden tijdens de communicatie die niet geweten mag zijn (private key blijft gewoon op de server staan). Bij synchrone encryptie moet dit wel! 
+
+### 2.30 Wat is een digital signature?
+Dit een een digitale handtekening, het verzekerd je dat je met de juiste persoon aan het praten bent! In de digitale banksector zeer belangrijk. Indien je ergens geld moet storten wil je wel zeker zijn dat die site de echte / juiste site is.
+
+Je kunt dit doen d.m.v. public key encryption (asymmetric key encryption). I.p.v. de vorige keer de private key te gebruiken voor te decrypten, gebruiken we deze nu voor de encrypteren! We hebben data die verzonden wordt, deze wordt gehasht. Deze hash wordt nu geëncrypteerd met de private sleutel van bv. Google. Pas op de data wordt niet geëncrypteerd, dit zou toch geen nut hebben met de private sleutel iedereen kan deze decrypteren met de publieke sleutel van Google. Indien je encryptie van de data wilt zul je dit zelf moeten doen (HTTPS doet dit, maar dit wordt niet uitgelegd in de slides!). 
+
+Als de ontvanger nu de data ontvangt plus de hash, zal hij deze hash decrypteren met de publieke sleutel! Daarna neemt hij de hash van de data. Indien deze dezelfde zijn is de data niet veranderd onderweg, en is de data ook afkomstig van Google!
+
+Met een digital signature hebben we dus authenticatie en integrity! Maar iedereen kan onze data lezen (sniffen)! Dit is dan ook niet het doel van een digital signature!
+
+### 2.31 Wat is de zwakte van een digital signature?
+Het systeem werkt enkel als de publieke sleutel echt wel diegene is van Google! Indien Eve aan Alive een andere publieke key verkoopt als de publieke key van Google (Bob). En Alice gelooft dit. Dan kan vanaf nu Eve berichten verzenden uit de naam van Google!!! Indien Eve dan ook nog de echte berichten van Google tegenhoudt hebben we een succesvole MiTM aanval gepleegd!
+
+Dit is uiteraard niet de bedoeling en lossen we op d.m.v. **digital certificates!**
+
+### 2.32 Wat is een Digital Certificate?
+Is iets dat een publieke key bind (toe eigend) aan een persoon / orginistatie! Met een certificaat weet een persoon dus dat de key bij de juiste persoon, organistatie hoort!
+
+Ze bestaan uit volgende informatie:
+
+*  Owner’s name or alias
+* 	Owner’s public key
+*  Name of the issuer
+* 	Digital signature of the issuer
+* 	Serial number of the digital certificate
+* 	Expiration date of the public key
+
+### 2.33 Hoe werkt een Digital Certificate? Hoe kunnen we zeker zijn?
+Indien je dus als persoon een certificaat wilt hebben zodanig mensen je site kunnen vertrouwen, gaat je dus naar een **Registration Authority (RA)**. Daar zul jij je gegevens moeten achter laten (persoonlijke gegevens zoals naam, adres, ...).
+Zij zullen een dossier om maken en nakijkeken of alles klopt en betrouwbaar is! Ze zullen dan je dosier doorsturen naar een **Certificate Authority (CA)**. Dit zijn bedrijven die een enorme verzameling certificaten heeft. 
+
+#####Hoe kunnen we nu zeker zijn dat de CA wel betrouwbaar is?
+Dit kunnen we doen omdat een CA zelf een certificaat heeft dat bij een andere CA zit. Indien deze zelf niet bij een CA zit kun je ze niet vertrouwen. Deze lus kan even door gaan tot je aan de Root CA zit. Deze organisatie bestaat er dus uit om te zoeken of een CA wel betrouwbaar is. Er is hier geen niveau meer boven. Indien deze dus zeggen dat de laatst gewone CA betrouwbaar is, en deze zegt dat de CA eronder betrouwbaar was, .... kun je er dus van uit gaan dat dit zo is. Mocht later blijken dat een (R)CA niet betrouwbaar meer is / was. Dan vallen alle CA's onder hun ook weg als betrouwbaar! (https => rood!)
+
+![Root CA](http://i.imgur.com/JzMf3ZT.png)
+
+Om de CA te controleren zijn er dus ook nog een VA (Validation Authority). Deze doen niets anders dan te kijken is dit certificaat bekend bij een CA, is deze CA bekend bij een andere CA, ... </br>
+Elke keer je een site bezoekt die https gebruikt wordt dit gedaan om zo zeker te zijn dat fb wel fb is (denk ik).
+
+![VA](http://i.imgur.com/abEYZ1r.png)
+
+### 2.34 Wat zijn CRL en CR?
+#####CRL => Certificate Revocation List
+Een lijst van certificaten die ingetrokken zijn en dus niet meer geldig zijn! Elke CA heeft er normaal zo één en kan publiekelijk bekeken worden.
+
+#####CR => Certificate Repository
+Een publiek toegankelijke map waaron alle certificaten en CRL's van een CA instaan!
+
+### 2.35 Waar worden deze digitale certificaten nu gebruikt?
+Voornamelijk bij het gebruik van https, hierdoor kun je dus zeker zijn dat een bepaalde site wel degelijk de site is dieje je bedoeld / nodig hebt. Dit is om phising tegen te gaan (kopie van bestaande site)!
+
+Echter kunnen ze online gebruikt worden voor alle zaken om te kunnen bewijzen dat je wel degelijk persoon X bent. Elke persoon met een EID heeft bijvoorbeeld een certificaat. Zo kun je via e-mail je jezelf ook bewijzen dat je wel degelijk die persoon bent! Maar ook voor andere zaken zoals belastingsbrief en etc. is het belangrijk dat de server weet dat je 100% de juiste persoon bent om fraude tegen te gaan!
