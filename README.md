@@ -265,3 +265,41 @@ Nu gaat je bit voor bit de data XOR'en met de gegenereerde sleutel. Je data in n
 Indien je wilt decrypteren, genereer je terug een sleutel d.m.v. een PRNG die als seed de de gekozen key heeft. Hierna XOR je deze met de inkomende geecrypteerde data. Indien de key juist was zal de gegenereerde steutel dezelfde zijn als bij de zender. XOR is omkeerbaar door terug te XOR'en met hetzelfde, dus indien de key dus juist was komt hier terug de originele bit uit!
 
 RC4 is een bekend voorbeeld, was long één van de encryptiemethoden. Werd gebruikt in https en wifi. Maar nu is toch gebleken dat deze niet zo veilig is dan gedacht!
+
+### 2.11 Wat is DES?
+DES staat voor Data Encryption Standard. Het is een synchrone cipher dat gebruikt maakt van **block cipher**. Het is voor lange tijd de standaard geweest voor encryptie. DES gebruikt blokken van 64 bit met een sleutel van 56 bit.
+
+### 2.12 Is DES nog veilig?
+DES wordt al lang niet meer gezien als veilig! Eerst was het mogelijk om DES te brute forcen met krachtige computers, hierna kwamen er ASIC uit met als specifieke taak DES kraken. Deze konden DES in minder dan een uur kraken.
+
+Het probleem bij DES was dat dezelfde plaintext met dezelfde key, in dezelfde ciphertext genereert. Dit kan "dodelijk" zijn voor de veiligheid. Zo kunnen we de data beter cryptoanalyseren (patronen vinden). Dit probleem wordt opgelost d.m.v. de **block cipher mode** (zie 2.16). 
+
+De oplossing was 3DES, dit is DES 3 keer achter elkaar gedaan. Het maakt DES een pak beter, maar uiteindelijk is deze ook vervangen door AES!
+
+### 2.13 Wat is AES?
+AES staat voor Advanced Encryption Standard. Het is de nieuwe standaard voor symetrische encryptie van data. Het is gebaseerd op Rijndael (Belgische encryptie). Het gebruikt een 128 bit data block en 128/192/256 bit sleutel. Deze sleutels zijn een pak langer dan DES, en hierdoor is het op dit moment nog niet mogelijk deze te brute-forcen.
+
+### 2.14 Hoe werkt DES?
+TODO, gaat ik waarschijnlijk niet meer geraken...
+
+### 2.15 Hoe werkt 3DES anders dan DES?
+TODO
+
+### 2.16 Wat zijn "Block Ciphers modes"?
+Een block cipher symetrische encryptie zegt enkel hoe de blocken van x aantal bits geencrypteerd worden. Je moet echter nog deze blokken kunnen genereren. Dit wordt a.d.h.v. **Block Cipher mode** gedaan. 
+
+Om brute force aanvallen te voorkomen, zijn er veel block cipher modes die de data samenvoegen met een unieke id (**Initial Vecor, IV**). Dit zorgt dat dezelfde data niet deze cypher text geeft! (Hetzelfde als salt, bij hashing!!!)
+
+### 2.17 Leg ECB uit!
+ECB, Electronic Codebook Block. De simpelste **block cipher mode**. De plaintext wordt in blokken gebroken. De grote van deze blokken is afhankelijk van de gebruikte encryptie (DES => 64). 
+
+Daarna worden deze blokken stuk voor stuk geencrypteerd d.m.v. je encryptie algoritme (DES, AES, ...). De blokken worden dus onafhankelijk van elkaar geencrypteerd! ECB maakt ook geen gebruik van de unieke id (*IV*), dit zorgt ervoor dat dus het probleem blijft bestaan van dezelfde plaindata dezelfde cipherdata geeft!
+
+![Problem ECB](http://i.imgur.com/9O2HTyx.png)
+
+### 2.18 Leg CBC uit!
+CBC staat voor Cipher Block Chaining! Data wordt gebroken in blokken. De eerste keer dat dit gebeurd zal er een IV gegeneerd worden. Deze IV wordt d.m.v. XOR samen gevoegd met de plaindata in de 1ste blok. Dit wordt dan geencrypteerd met een symetrische encryptie (DES, AES, ...). Het resultaat hiervan wordt bij de volgende block gebruikt als IV (ketting).
+
+Dit heeft dus als gevolg dat dezelfde plaindata niet dezelfde cypherdata geeft bij dezelfde key. Het is nu "onmogelijk" om patronen te gaan zoeken.
+
+![Solution CBC](http://i.imgur.com/3veLpJH.png)
