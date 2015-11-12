@@ -198,7 +198,7 @@ TODO
 Geheime communicatie tussen twee personen zonder de derde er iets van begrijpt!
 
 ### 2.2 Geef het blok schema van de verschillende soorten crypto algoritmes.
-![Blokschema crypto](http://i.imgur.com/jehu3a8.png)
+![Blokschema crypto](http://i.imgur.com/sY7AioE.png)
 
 ### 2.3 Wat is een "Substitution Cipher"? + geef een voorbeeld.
 Is een encryptiemethode om tekst te encrypteren! Bij deze encyrptie wordt betekend een leter gewoon een andere leter in het alfabet. Bijvoorbeeld => A komt overeen met Z!
