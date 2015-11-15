@@ -465,3 +465,15 @@ Waar je bij LAN dus minstens toegang nodig had tot een ethernet poort is dit bij
 Zonder beveilings methode hebben we niets van CIA. Buiten het feit dat de beveiling dus zorgt voor wie mag er met de access point verbinden zal het dan ook aan encryptie en integriteits checks van de data doen!
 
 1 ste standaard => WEP (Wireless Equivalent Privacy)
+
+# Effectief gestelde vragen op examen (November 2016)
+* Een public-private key cryptografisch systeem kan gebruikt woorden voor zowel Confidentiality als voor Authentication. Verklaar hoe dit in z’n werk gaat. (3p)
+* Wat is een Rainbow tables attack? Wat is een eenvoudige manier om deze aanval te voorkomen? (2p)
+* Wat is het principe van Kerkhoff? Waarom is dit principe een nadeel voor symmetrische crypto-systemen? (2p)
+* Waarom kan je niet anders dan de Root CA in een PKI vertrouwen? Leg uit wat een CA doet. (3p)
+* Welke dag is dé ideale dag om een nieuwe exploit op je slachtoffers los te laten? Waarom? (1p)
+* Wat is het verschil tussen een root kit en eenvoudige malware? (2p)
+* Hoe kan je heel eenvoudig de sessie van een andere gebruiker op bol.com overnemen? Beschrijf je ‘aanval’? [owasp] (2p)
+* Hoe kan je data leakage door onveilige data opslag voorkomen? [owasp] (2p)
+* Wordt de XOR functie gebruikt in WEP encryptie bij Wifi? En bij WPA1? Teken het encryptieschema van WEP. (3p)
+
