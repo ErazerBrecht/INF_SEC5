@@ -466,7 +466,7 @@ Zonder beveilings methode hebben we niets van CIA. Buiten het feit dat de beveil
 
 1 ste standaard => WEP (Wireless Equivalent Privacy)
 
-# Effectief gestelde vragen op examen (November 2016)
+# Effectief gestelde vragen op examen (November 2015)
 * Een public-private key cryptografisch systeem kan gebruikt woorden voor zowel Confidentiality als voor Authentication. Verklaar hoe dit in z’n werk gaat. (3p)
 * Wat is een Rainbow tables attack? Wat is een eenvoudige manier om deze aanval te voorkomen? (2p)
 * Wat is het principe van Kerkhoff? Waarom is dit principe een nadeel voor symmetrische crypto-systemen? (2p)
@@ -477,3 +477,26 @@ Zonder beveilings methode hebben we niets van CIA. Buiten het feit dat de beveil
 * Hoe kan je data leakage door onveilige data opslag voorkomen? [owasp] (2p)
 * Wordt de XOR functie gebruikt in WEP encryptie bij Wifi? En bij WPA1? Teken het encryptieschema van WEP. (3p)
 
+
+# 2de module
+
+Aantal leerstof in deze module is klein. Hoofdleerstof bestond uit 7u Pluralsight + PPT Social engineering + PPT Metasploit + PPT Autereursrechten
+
+## Scanning
+
+### Wat is het doel van 'Scanning'?
+Meer informatie te weten komen dan bij 'Reconnaissance' . Bij deze stap hadden we gezocht uit welke IP-ranges het netwerk bestond. Bij scanning willen we weten hoe het netwerk eruit ziet. We willen weten wat de functies zijn van onze hosts (server, DC, ...) we willen weten welke besturingssystemen (+versie) onze targets hebben. </br>
+Als laatste zoeken we al uit welke 'kwetsbaarheid' bekend is bij onze targets.
+
+### Hoe doen we dit (basis)
+##### PING: MOTHER OF EVERYTHING
+We beginnen standaard met een pingsweep van heel het netwerk. 'PING' is en ICMP echo, indien er een ICMP reply terug komt weten we dat er op dat specifieke IP adress en host live is.
+
+ICMP is een IP protocol (Netwerk laag). Het speciefiert geen transport laag. Het werkt dus met 'geen' poorten. (ICMP's zijn altijd poort '1'.) Het is dus heel gemakkelijk om deze te blokkeren in een firewall!
+
+Pingen kun je standaar in CMD. Maar dit is maar één adres tegelijk. Wil je volledige network ranges af gaan kun je beter gebruik maken van Angry IP Scanner of nmap (Zenmap).
+
+Deze stap is dus niet genoeg...
+
+##### TCP: 3-way handshake
+TODO
