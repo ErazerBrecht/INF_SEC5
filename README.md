@@ -489,7 +489,7 @@ Meer informatie te weten komen dan bij 'Reconnaissance' . Bij deze stap hadden w
 Als laatste zoeken we al uit welke 'kwetsbaarheid' bekend is bij onze targets.
 
 ### Hoe doen we dit!?
-##### PING: MOTHER OF EVERYTHING
+#### PING: MOTHER OF EVERYTHING
 We beginnen standaard met een pingsweep van heel het netwerk. 'PING' is en ICMP echo, indien er een ICMP reply terug komt weten we dat er op dat specifieke IP adress en host live is.
 
 ICMP is een IP protocol (Netwerk laag). Het speciefiert geen transport laag. Het werkt dus met 'geen' poorten. (ICMP's zijn altijd poort '1'.) Het is dus heel gemakkelijk om deze te blokkeren in een firewall!
@@ -498,21 +498,56 @@ Pingen kun je standaar in CMD. Maar dit is maar één adres tegelijk. Wil je vol
 
 Deze stap is dus niet genoeg...
 
-##### TRANSPORT LAYER
+#### TRANSPORT LAYER
 Voor we verder kunnen moeten we 3-way handshake van TCP begrijpen. Als je dit niet kent, Yves Masset komt je halen :)
 
 Indien twee computers willen communiceren met elkaar kun je gebruik maken van TCP / UDP als transport protocol. TCP is het lieve, zachtaardig protocol. UDP is het 'maakt mij niet uit' protocol! Waarom?
 
-Bij TCP ben je zeker dat er een connectie tussen beide computers is (what is love?). TCP zal er ook voor zorgen dat pakketjeS sowieso aankomen en dat ze in volgorde aankomen. TCP heeft ook flow - control. Dit wilt zeggen als het allemaal een beetje te snel gaat, de host ervan verwittigd wordt en deze trager zal beginnenn zenden!
+Bij TCP ben je zeker dat er een connectie tussen beide computers is (what is love?). TCP zal er ook voor zorgen dat pakketjes sowieso aankomen en dat ze in volgorde aankomen. TCP heeft ook flow - control. Dit wilt zeggen als het allemaal een beetje te snel gaat, de host ervan verwittigd wordt en deze trager zal beginnen zenden!
 
 UDP is hier het tegenovergestelde van! UDP maakt het niets uit, je zend er naar klaar. Je bent nooit zeker of je data aankomt. Laat staan dat je zeker bent dat data in de juiste volgorde toekomt! Het voordeel van UDP is wel dat het sneller is! En het minder overhead heeft!
 
-##### 3 - way handshake
+#### 3 - way handshake
 3 - way handshake is de manier waarop TCP een connectie opsteld tussen beide computers. Vanaf dan kunnen ze zenden met elkaar!
 (was het in het echte leven ook maar zo simpel).
 
-De zender stuurt een *'SYN'* pakketje naar de ontvanger. Dit heeft een bepaalde random ID laat ons zeggen 31. Als de ontvanger toegang toelaat zal hij een *'SYN-ACK'* terug sturen. Deze heeft ook een random ID (bv. 58). maar heeft nog een andere id ook de 'ACK' id. Deze zal de id van de zender hebben +1! In ons geval dus 32. Nu weet de zender ook over welke communicatie het gaat. De ontvanger heeft de zender dus geaccepteerd. Als bewijs sturen wij (zender) nog eens een *'ACK'* terug deze zal als ID onze 32 hebben maar als 'ACK' id de ID van de SYN-ACK + 1! In ons geval dus 59. Nu weet de server ook bij welke communicatie dit pakketje hoort.
+De zender stuurt een **'SYN'** pakketje naar de ontvanger. Dit heeft een bepaalde random ID laat ons zeggen 31. Als de ontvanger toegang toelaat zal hij een **'SYN-ACK'** terug sturen. Deze heeft ook een random ID (bv. 58). maar heeft nog een andere id ook de 'ACK' id. Deze zal de id van de zender hebben +1! In ons geval dus 32. Nu weet de zender ook over welke communicatie het gaat. De ontvanger heeft de zender dus geaccepteerd. Als bewijs sturen wij (zender) nog eens een **'ACK'** terug deze zal als ID onze 32 hebben maar als 'ACK' id de ID van de SYN-ACK + 1! In ons geval dus 59. Nu weet de server ook bij welke communicatie dit pakketje hoort.
 
 De zender en ontvanger zijn nu 'vrienden' en er kan een TCP connectie beginnen (Bv. HTTPS).
 
 ![3 - way handshake](http://thumbs.dreamstime.com/z/tcp-way-handshake-model-30635805.jpg)
+
+#### TCP scan
+We kunnen nu door een 3 way handshake te doen op elke poort van een host te weten komen of de host live is, en wat zijn taak in het netwerk is.
+
+Dit is veel moeilijker te firewallen. Stel je hebt een webserver (poort 80 / 443). Je kunt deze poort niet dicht doen. Anders heeft je webserver niet veel nut. 3 - way handshake kun je ook niet verbieden, anders kan er niemand verbinding mee maken.
+
+Het enigste hoe je dit kun oplossen. Is kijken hoeveel tries een client doet ligt dit abonormaal hoog kun je de hacker van je netwerk smijten. Pas op dit vertraagd enkel de hacker! En de hacker heeft veel tijd...
+
+##### Open poort
+Indien de poort open is zal de 3 - way handshake gelukt zijn! 
+
+##### Gesloten poort
+Indien je een 'RST' terug krijgt i.p.v. een 'ACK' dan is de poort gesloten!
+
+##### Firewall
+Indien je 'SYN' pakket niet aankomt en je dus geen enkel pakket terug krijgt dan heeft de firewall het geblokkeerd!
+
+#### UDP scan
+Veel moeilijker! Geen 3 - way handshake! Je weet dus nooit of een poort nu dicht is, ze gefirewalled wordt of je pakketje gewoon nooit is aangekomen! Je bent bij UDP dus verplicht om altijd x - aantal tijd te wachten...
+
+##### Open poort
+Je stuurt een **'request'**, je krijg een **'response'** terug! 
+
+##### Gesloten poort, firewall, gedropt pakketje
+Je krijgt gewoon niets terug!
+
+#### Tijd
+Port scanning kan lang duren (2 * 65535 poorten). Zeker UDP scanning kan lang duren. Er is een commnado in nmap dat je enkel de belangrijkste poorten scant!
+
+> --top-ports
+
+Deze zal de 2000 meest voorkomende open TCP poorten scannen en de 500 meest voorkomende open UDP poorten scannen!
+
+#### Nut?
+Indien je weet welke poorten openstaan. TODO
