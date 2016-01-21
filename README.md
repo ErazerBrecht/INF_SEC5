@@ -604,6 +604,35 @@ Idle attack is één van mogelijkheden. Maar door je scans niet allemaal heel sn
 - IDS / Firewall up to date houden!
 
 ## Netwerk aanvallen
-Volgorde is zeer belangrijk:
-TODO
+**Volgorde is zeer belangrijk:**
 
+- Toegang verkrijgen: Passwoorden hacken
+- Toegang verkrijgen: Meer gebruikersrechten eigenen
+- Toegang bijhouden: Backdoors uitvoeren
+- Toegang bijhouden: Je tools verwijderen
+- Sporen uitwissen: Bewijs en logs verwijderen!
+
+TODO: Sammenvatting van 3u film (TODO: Nog meer uitleg)
+
+## Social Engineering
+
+### Quid Pro Quo
+Voor wat hoort wat!
+
+Bel telefoon nummers van het bedrijf (heb je bijv. door dumpster diving gevonden). Vraag welk ICT probleem ze hadden. 99% zal antwoorden dat ze geen probleem hebben maar die ene procent kun je beginnen uitbuiten.
+
+Je vraagt naar hun login gevegens om remote te kunnen inloggen. Veel (niet ingelichte) werknemers zullen dit geven!
+
+### Phishing
+Je stuurt bijvoorbeeld e-mail uit persoon van iemand anders. (Telefoon is ook een veel voorkomend probleem)
+
+Bijvoorbeeld je stuurt met het e-mail van de CEO een opdracht (zend 70 miljoen euro over naar rekening x). Werknemer neemt 'CEO' niet in twijfel (of durft het niet)... 
+
+### Baiting
+Bijvoorbeeld, USB sticks in de parking (realife trojan horse). Niets wetende gebruiker steekt usb stick in computer. Computer wordt gehackt (malware).
+
+### Pretexting
+Vooronderzoek doen. Bepaalde zaken over bedrijf / persoon weten en dit gebruiken om de werknemer int zak te zetten.
+
+###Diversion Theft
+Liegen dat bepaalde service niet meer werkt en dat jij het wel zult oplossen!
