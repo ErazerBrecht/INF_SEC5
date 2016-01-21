@@ -536,6 +536,8 @@ Indien je 'SYN' pakket niet aankomt en je dus geen enkel pakket terug krijgt dan
 #### UDP scan
 Veel moeilijker! Geen 3 - way handshake! Je weet dus nooit of een poort nu dicht is, ze gefirewalled wordt of je pakketje gewoon nooit is aangekomen! Je bent bij UDP dus verplicht om altijd x - aantal tijd te wachten...
 
+Deze uitleg is gebaseerd op slides van EY. De Pluralsight uitleg zegt het tegenovergestelde -.-
+
 ##### Open poort
 Je stuurt een **'request'**, je krijg een **'response'** terug! 
 
@@ -559,7 +561,7 @@ Je kunt dus een 3 - way handshake op zetten. Dit is echter vrij actief! Elke kee
 
 Er zijn ook nog een paar andere methoden die minder hard opvallen in het netwerk!
 
-##### Half - open scan
+##### Half - open (stealth)
 Deze is de simpelste variant. Toch is deze misschien we de beste!
 
 Het princiepe hieruit bestaat eruit dat indien je je **'SYN - ACK'** hebt terug gekregen van de server, zelf geen **'ACK'** meer terug te sturen naar de server. Je weet immers al of de poort open is of niet! Deze server zal nu ook niet loggen dat er een connectie open staat! (kans is er nog steeds, maar kleiner)
@@ -571,4 +573,37 @@ Het princiepe hieruit bestaat eruit dat indien je je **'SYN - ACK'** hebt terug 
 
 Deze gebruiken andere TCP pakketen (FIN, URG, ...) om te kijken of een poort open is of niet. Deze varienten werken niet op Windows systemen! (TODO: Verder uitleggen!?)
 
+### Fire walking
+Bepaalde firewals houden bepaalde poorten tegen (daar dienen ze ten slotte voor). Indien je 'victim' netwerk achter meerdere firewalls zit moet je zoeken of er geen weg door is!
+
+Aangezien webservers in het bedrijf zelf wel moeten werken (intranet) zal poort 80/443 naar de buiten wereld gesloten zijn maar de interne firewall zal deze poort doorlaten (anders geen site). Je moet dus bij elke firewall afgaan welke poort toegelaten wordt en welke niet! Dit concept heet fire walking.
+
+Onthoud dus goed een firewall houdt een aanvaller niet tegen, het vertraagd de aanvaller enkel! En de aanvaller heeft tijd.
+
+### Idle attack
+Vereist een computer die idle is aka geen netwerkverkeer!
+
+Je veranderd het source ip adress van je tcp pakket naar het source adress van de idle computer (stel ID = 123)! (zombie). De server zal nu terug sturen naar de zombie (RST, SYN-ACK). De zombie weet totaal niet waar dit over gaat.
+
+Indien de poort open is (SYN-ACK). Zal de zombie RST sturen. De ID wordt vermeerderd met 1 (124). Indien de poort gesloten was (RST), zal de zombie gewoon niets sturen.
+
+Indien je nu een **'SYN/ACK'** stuurt naar de hacker en het antwoord is 124 dan is de poort dicht. Als het antwoord 125 is, is de poort open.
+
+Nu heb je een aanval gedaan maar ben je zelf minder actief geweest op het netwerk (server), je kanspak is dus een pak kleiner!
+
+### IDS omzeilen
+
+Idle attack is één van mogelijkheden. Maar door je scans niet allemaal heel snel achter elkaar te doen maar tijd tussen te laten of door meerdere kleine pakketjes te gebruiken is het ook al moeilijk voor de IDS om je te 'vangen'.
+
+### Voorzorgsmaatregels
+- Firewall -> SYN scans blokkeren (er zit een patroon in)
+- IDS -> nmap / snort mogen niet op het netwerk actief zijn (direct blokkeren)
+- Enkel echt nodige poorten openen
+- ICMP blokkeren
+- Netwerk vaak testen
+- IDS / Firewall up to date houden!
+
+## Netwerk aanvallen
+Volgorde is zeer belangrijk:
+TODO
 
