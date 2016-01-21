@@ -550,4 +550,25 @@ Port scanning kan lang duren (2 * 65535 poorten). Zeker UDP scanning kan lang du
 Deze zal de 2000 meest voorkomende open TCP poorten scannen en de 500 meest voorkomende open UDP poorten scannen!
 
 #### Nut?
-Indien je weet welke poorten openstaan. TODO
+Indien je weet welke poorten openstaan weet je ook wat de functionaliteit van dat OS is in het netwerk! Indien poort 80 / 443 open staan is het een webserver. Zo zul je als goede hacker na enige ervaring weten welke poorten overeen komen met welke functionaliteit. Zo heeft een DOMAIN Controller een vaste set aan poorten open staan. Als je weet welke host de DC is weet je al heel veel. Indien je deze kan hacken en kun je meestal zeggen dat het volledige netwerk gecompromised is! 
+
+Je kunt aan de hand van de poorten ook vaak bepalen welk OS er draait op de host. Nmap heeft een lijst van 2600 OS'en gekoppeld aan stanaard open poorten. Zo kun je snel te weten komen welk OS er draait en je aanvallen voorbereiden. Zo kun je bijvoorbeeld zoeken of er nog ergens een Windows XP computer in het netwerk zit en daar je op focussen!
+
+#### Manieren (TCP)?
+Je kunt dus een 3 - way handshake op zetten. Dit is echter vrij actief! Elke keer de server een 'ACK' ontvangt zal dat gelogd worden. Je bent als hacker dus vrij makkelijk zichtbaar!
+
+Er zijn ook nog een paar andere methoden die minder hard opvallen in het netwerk!
+
+##### Half - open scan
+Deze is de simpelste variant. Toch is deze misschien we de beste!
+
+Het princiepe hieruit bestaat eruit dat indien je je **'SYN - ACK'** hebt terug gekregen van de server, zelf geen **'ACK'** meer terug te sturen naar de server. Je weet immers al of de poort open is of niet! Deze server zal nu ook niet loggen dat er een connectie open staat! (kans is er nog steeds, maar kleiner)
+
+##### Andere varianten
+- XMAS
+- FIN
+- NULL
+
+Deze gebruiken andere TCP pakketen (FIN, URG, ...) om te kijken of een poort open is of niet. Deze varienten werken niet op Windows systemen! (TODO: Verder uitleggen!?)
+
+
