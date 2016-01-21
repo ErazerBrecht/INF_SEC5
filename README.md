@@ -488,7 +488,7 @@ Aantal leerstof in deze module is klein. Hoofdleerstof bestond uit 7u Pluralsigh
 Meer informatie te weten komen dan bij 'Reconnaissance' . Bij deze stap hadden we gezocht uit welke IP-ranges het netwerk bestond. Bij scanning willen we weten hoe het netwerk eruit ziet. We willen weten wat de functies zijn van onze hosts (server, DC, ...) we willen weten welke besturingssystemen (+versie) onze targets hebben. </br>
 Als laatste zoeken we al uit welke 'kwetsbaarheid' bekend is bij onze targets.
 
-### Hoe doen we dit (basis)
+### Hoe doen we dit!?
 ##### PING: MOTHER OF EVERYTHING
 We beginnen standaard met een pingsweep van heel het netwerk. 'PING' is en ICMP echo, indien er een ICMP reply terug komt weten we dat er op dat specifieke IP adress en host live is.
 
@@ -498,5 +498,21 @@ Pingen kun je standaar in CMD. Maar dit is maar één adres tegelijk. Wil je vol
 
 Deze stap is dus niet genoeg...
 
-##### TCP: 3-way handshake
-TODO
+##### TRANSPORT LAYER
+Voor we verder kunnen moeten we 3-way handshake van TCP begrijpen. Als je dit niet kent, Yves Masset komt je halen :)
+
+Indien twee computers willen communiceren met elkaar kun je gebruik maken van TCP / UDP als transport protocol. TCP is het lieve, zachtaardig protocol. UDP is het 'maakt mij niet uit' protocol! Waarom?
+
+Bij TCP ben je zeker dat er een connectie tussen beide computers is (what is love?). TCP zal er ook voor zorgen dat pakketjeS sowieso aankomen en dat ze in volgorde aankomen. TCP heeft ook flow - control. Dit wilt zeggen als het allemaal een beetje te snel gaat, de host ervan verwittigd wordt en deze trager zal beginnenn zenden!
+
+UDP is hier het tegenovergestelde van! UDP maakt het niets uit, je zend er naar klaar. Je bent nooit zeker of je data aankomt. Laat staan dat je zeker bent dat data in de juiste volgorde toekomt! Het voordeel van UDP is wel dat het sneller is! En het minder overhead heeft!
+
+##### 3 - way handshake
+3 - way handshake is de manier waarop TCP een connectie opsteld tussen beide computers. Vanaf dan kunnen ze zenden met elkaar!
+(was het in het echte leven ook maar zo simpel).
+
+De zender stuurt een *'SYN'* pakketje naar de ontvanger. Dit heeft een bepaalde random ID laat ons zeggen 31. Als de ontvanger toegang toelaat zal hij een *'SYN-ACK'* terug sturen. Deze heeft ook een random ID (bv. 58). maar heeft nog een andere id ook de 'ACK' id. Deze zal de id van de zender hebben +1! In ons geval dus 32. Nu weet de zender ook over welke communicatie het gaat. De ontvanger heeft de zender dus geaccepteerd. Als bewijs sturen wij (zender) nog eens een *'ACK'* terug deze zal als ID onze 32 hebben maar als 'ACK' id de ID van de SYN-ACK + 1! In ons geval dus 59. Nu weet de server ook bij welke communicatie dit pakketje hoort.
+
+De zender en ontvanger zijn nu 'vrienden' en er kan een TCP connectie beginnen (Bv. HTTPS).
+
+![3 - way handshake](http://thumbs.dreamstime.com/z/tcp-way-handshake-model-30635805.jpg)
